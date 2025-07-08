@@ -1,0 +1,230 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Đảm bảo body chiếm toàn bộ chiều cao khung nhìn */
+    background-color: #f5f5dc; /* Màu be nhạt */
+    margin: 0;
+    color: #333; /* Màu chữ mặc định cho body */
+    overflow: hidden; /* Để các hạt bay ra ngoài màn hình không tạo scrollbar */
+}
+
+.container {
+    text-align: center;
+    padding: 30px;
+    background-color: #fff; /* Nền trắng cho khung bao */
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 90%;
+    position: relative; /* Quan trọng: để các hạt bay ra từ nút nằm trong ngữ cảnh container */
+    z-index: 1; /* Đảm bảo container nằm trên các hạt nếu chúng overlap */
+}
+
+/* Styles cho tiêu đề trang ban đầu */
+h1 {
+    color: #8b4513; /* Màu nâu */
+    margin-bottom: 20px;
+    font-size: 2.2em; /* Kích thước tiêu đề */
+}
+
+/* Styles cho đoạn văn bản hướng dẫn */
+p {
+    margin-bottom: 25px;
+    color: #555; /* Màu chữ xám cho hướng dẫn */
+    line-height: 1.6;
+}
+
+/* Styles cho nút bấm */
+button {
+    background-color: #d2b48c; /* Màu nâu nhạt */
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Đổ bóng cho nút */
+    margin-bottom: 20px; /* Khoảng cách dưới nút */
+    position: relative; /* Quan trọng: để lấy vị trí nút chính xác cho hiệu ứng */
+    z-index: 2; /* Đảm bảo nút nằm trên các hạt */
+}
+
+button:hover {
+    background-color: #a0522d; /* Màu nâu đậm hơn khi hover */
+}
+
+/* Styles cho phần nội dung thiệp chi tiết */
+#cardContent {
+    margin-top: 20px; /* Khoảng cách từ nút hoặc tiêu đề nếu không có nút */
+    padding: 30px;
+    background-color: #f8f8f8; /* Nền thiệp trắng nhạt */
+    border-radius: 12px; /* Bo góc thiệp */
+    text-align: center; /* Căn giữa nội dung thiệp */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Đổ bóng nhẹ cho thiệp */
+    border: 1px solid #eee; /* Viền thiệp */
+
+    /* HIỆU ỨNG MỞ MÀN */
+    opacity: 0; /* Ban đầu ẩn hoàn toàn */
+    transform: scale(0.95); /* Ban đầu hơi nhỏ lại */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Hiệu ứng chuyển động mượt mà */
+    display: none; /* Mặc định ẩn bằng display none */
+}
+
+/* Class để kích hoạt hiệu ứng hiển thị */
+#cardContent.card-show {
+    opacity: 1; /* Hiển thị hoàn toàn */
+    transform: scale(1); /* Phóng to về kích thước gốc */
+    display: block; /* Đảm bảo nó hiển thị */
+}
+
+#cardContent .card-title {
+    font-family: 'Dancing Script', cursive; /* Font chữ viết tay */
+    font-size: 2.5em;
+    color: #8b4513; /* Màu nâu */
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Đổ bóng nhẹ cho chữ */
+}
+
+.calendar {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.calendar .month-year {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.calendar table {
+    width: auto;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    color: #333;
+    border: 1px solid #ddd; /* Viền bảng nhẹ */
+    border-radius: 5px;
+    overflow: hidden; /* Đảm bảo bo góc hoạt động */
+}
+
+.calendar th,
+.calendar td {
+    padding: 8px;
+    border: 1px solid #eee; /* Viền ô nhẹ */
+    text-align: center;
+}
+
+.calendar th {
+    background-color: #f0f0f0;
+    font-weight: normal;
+    color: #666;
+}
+
+.calendar .highlight-date {
+    padding: 5px;
+    border: 2px solid #a0522d; /* Viền đậm màu nâu cho ngày */
+    border-radius: 50%; /* Bo tròn để tạo hình tròn */
+    font-weight: bold;
+    background-color: #fffaf0; /* Nền nhẹ cho ngày nổi bật */
+    color: #a0522d; /* Màu chữ cho ngày nổi bật */
+    display: inline-block; /* Để áp dụng padding và border */
+    min-width: 25px; /* Đảm bảo hình tròn không bị méo */
+    min-height: 25px;
+    line-height: 25px; /* Căn giữa số trong hình tròn */
+}
+
+.time-info {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.date-info {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.invitation-text {
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-style: italic; /* Kiểu chữ nghiêng cho lời mời */
+}
+
+/* Style cho dòng "Trân trọng," */
+.greeting-closing {
+    font-size: 1.1em;
+    color: #333;
+    margin-top: 25px; /* Khoảng cách trên */
+    margin-bottom: 5px; /* Khoảng cách dưới */
+}
+
+/* Style cho tên của bạn */
+.signature-name {
+    font-family: 'Dancing Script', cursive; /* Font chữ viết tay */
+    font-size: 2em; /* Kích thước lớn hơn */
+    color: #a0522d; /* Màu nâu đậm hơn */
+    margin-top: 0;
+    margin-bottom: 30px; /* Khoảng cách dưới cùng */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    font-weight: bold;
+}
+
+.location-info {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Căn giữa biểu tượng và text */
+    color: #777;
+    font-size: 0.9em;
+}
+
+.location-icon {
+    margin-right: 5px;
+    font-size: 1.2em;
+}
+
+.hidden {
+    display: none; /* Class để ẩn một phần tử */
+}
+
+/* ----------- Styles cho hiệu ứng hạt giấy/pháo hoa ----------- */
+
+#particle-container {
+    position: fixed; /* Giữ container cố định trên màn hình */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Chiếm toàn bộ chiều rộng viewport */
+    height: 100vh; /* Chiếm toàn bộ chiều cao viewport */
+    pointer-events: none; /* Cho phép click xuyên qua container này */
+    z-index: 999; /* Đảm bảo nó nằm trên tất cả các phần tử khác */
+}
+
+.particle {
+    position: absolute;
+    /* Kích thước và hình dạng mặc định, sẽ được ghi đè bằng JS */
+    width: 8px; /* Kích thước hạt */
+    height: 8px;
+    background-color: gold; /* Màu mặc định (sẽ bị JS ghi đè) */
+    border-radius: 50%; /* Hình tròn hoặc có thể bỏ nếu muốn hình vuông */
+    opacity: 0; /* Ban đầu ẩn */
+    transform: translate(-50%, -50%); /* Căn giữa hạt tại vị trí bắt đầu */
+    /* animation: particle-animation linear forwards; <--- Dòng này sẽ được ghi đè bằng animation mới trong JS */
+}
+
+/* KEYFRAMES MỚI CHO HIỆU ỨNG NỔ TỪ CÁC GÓC/CẠNH */
+@keyframes confetti-burst {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(0deg) scale(var(--scale)); /* Bắt đầu tại điểm gốc của nó */
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--target-x), var(--target-y)) rotate(calc(var(--rotation) + 720deg)) scale(calc(var(--scale) * 0.5)); /* Bay ra ngoài, xoay, nhỏ dần */
+    }
+}
