@@ -374,3 +374,184 @@ button:hover {
         font-size: 1.4em;
     }
 }
+/* Styles cho phần địa điểm mới */
+.location-label {
+    font-size: 1.1em;
+    color: #555;
+    margin-top: 20px; /* Khoảng cách từ phần tử phía trên */
+    margin-bottom: 5px; /* Khoảng cách với icon */
+    font-weight: bold;
+}
+
+.location-info {
+    display: flex;
+    flex-direction: column; /* Icon và chi tiết địa điểm xếp chồng lên nhau */
+    align-items: center; /* Căn giữa theo chiều ngang */
+    justify-content: center;
+    color: #777;
+    font-size: 0.9em;
+    text-align: center;
+    margin-bottom: 20px; /* Khoảng cách dưới cùng của thiệp */
+}
+
+.location-icon {
+    margin-bottom: 8px; /* Khoảng cách dưới icon */
+    font-size: 1.8em; /* Làm icon lớn hơn để nổi bật */
+    color: #a0522d; /* Màu sắc cho icon */
+}
+
+.location-details {
+    display: flex;
+    flex-direction: column; /* Các dòng chi tiết địa điểm xếp chồng lên nhau */
+    align-items: center; /* Căn giữa các dòng chi tiết */
+    line-height: 1.4; /* Khoảng cách giữa các dòng */
+}
+
+.location-details span {
+    display: block; /* Đảm bảo mỗi dòng chiếm một khối riêng */
+    font-size: 1em; /* Kích thước chữ mặc định cho các dòng địa điểm */
+    color: #333; /* Màu chữ cho chi tiết địa điểm */
+}
+
+/* ========================================================= */
+/* Cập nhật MEDIA QUERIES FOR RESPONSIVENESS cho phần địa điểm */
+/* ========================================================= */
+
+/* Áp dụng cho màn hình nhỏ hơn 768px */
+@media (max-width: 768px) {
+    .location-label {
+        font-size: 1em;
+    }
+    .location-icon {
+        font-size: 1.6em;
+    }
+    .location-details span {
+        font-size: 0.95em;
+    }
+}
+
+/* Áp dụng cho màn hình nhỏ hơn 480px */
+@media (max-width: 480px) {
+    .location-label {
+        font-size: 0.9em;
+    }
+    .location-icon {
+        font-size: 1.4em;
+    }
+    .location-details span {
+        font-size: 0.9em;
+    }
+}
+
+/* Áp dụng cho màn hình cực nhỏ (320px) */
+@media (max-width: 320px) {
+    .location-label {
+        font-size: 0.85em;
+    }
+    .location-icon {
+        font-size: 1.2em;
+    }
+    .location-details span {
+        font-size: 0.8em;
+    }
+}
+/* Styles cho nhãn "Địa điểm:" */
+.location-label {
+    font-size: 1.1em; /* Kích thước chữ */
+    color: #555; /* Màu chữ */
+    margin-top: 20px; /* Khoảng cách từ phần tử phía trên (date-info) */
+    margin-bottom: 5px; /* Khoảng cách với khối địa điểm */
+    font-weight: bold; /* Chữ in đậm */
+}
+
+/* Styles cho khối thông tin địa điểm chính */
+.location-info {
+    display: flex;
+    flex-direction: row; /* QUAN TRỌNG: Xếp biểu tượng và chi tiết trên MỘT HÀNG */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa toàn bộ khối theo chiều ngang */
+    color: #777; /* Màu chữ mặc định cho khối */
+    font-size: 0.9em; /* Kích thước chữ tổng thể */
+    text-align: center; /* Đảm bảo văn bản được căn giữa */
+    margin-bottom: 20px; /* Khoảng cách với lời mời phía dưới */
+    flex-wrap: wrap; /* Cho phép các phần tử xuống dòng nếu không đủ chỗ trên màn hình nhỏ */
+}
+
+/* Styles cho biểu tượng địa điểm */
+.location-icon {
+    margin-right: 5px; /* QUAN TRỌNG: Khoảng cách giữa icon và chữ */
+    margin-bottom: 0; /* Loại bỏ margin-bottom cũ */
+    font-size: 1.5em; /* Kích thước biểu tượng */
+    color: #a0522d; /* Màu nâu đậm cho biểu tượng, đồng bộ với chủ đề */
+}
+
+/* Styles cho SPAN chứa cả địa điểm trên một dòng */
+.single-location-text {
+    font-size: 1em; /* Kích thước chữ */
+    color: #333; /* Màu chữ */
+    line-height: 1.4; /* Khoảng cách dòng (có thể không cần thiết nếu chỉ 1 dòng) */
+    white-space: normal; /* Cho phép văn bản tự động xuống dòng nếu quá dài, hoặc nowrap nếu bạn muốn nó luôn trên 1 dòng bất kể độ rộng */
+    /* Nếu muốn luôn trên 1 hàng, ngay cả khi tràn màn hình, dùng: white-space: nowrap; */
+    /* Nếu muốn tự động xuống dòng khi màn hình hẹp, dùng: white-space: normal; */
+}
+
+/* --- Responsive adjustments for location section in Media Queries --- */
+/* Cần được thêm vào (hoặc cập nhật nếu đã có) trong các @media query hiện tại của bạn */
+
+/* Trong @media (max-width: 768px) */
+@media (max-width: 768px) {
+    /* ... các style khác ... */
+
+    .location-label {
+        font-size: 1em;
+    }
+    .location-icon {
+        font-size: 1.4em; /* Giảm kích thước icon */
+    }
+    .single-location-text {
+        font-size: 0.95em; /* Giảm kích thước chữ */
+    }
+    .location-info {
+        flex-direction: row; /* Vẫn giữ trên hàng ngang */
+        /* Có thể thêm margin-top/bottom nếu cần khoảng cách */
+    }
+}
+
+/* Trong @media (max-width: 480px) */
+@media (max-width: 480px) {
+    /* ... các style khác ... */
+
+    .location-label {
+        font-size: 0.9em;
+    }
+    .location-icon {
+        font-size: 1.2em; /* Giảm kích thước icon */
+    }
+    .single-location-text {
+        font-size: 0.9em; /* Giảm kích thước chữ */
+    }
+    .location-info {
+        flex-direction: row; /* Vẫn giữ trên hàng ngang */
+        /* Nếu thấy địa điểm bị tràn, bạn có thể cân nhắc lại flex-wrap hoặc giảm font-size nhiều hơn */
+    }
+}
+
+/* Trong @media (max-width: 320px) */
+@media (max-width: 320px) {
+    /* ... các style khác ... */
+
+    .location-label {
+        font-size: 0.85em;
+    }
+    .location-icon {
+        font-size: 1em; /* Giảm kích thước icon */
+    }
+    .single-location-text {
+        font-size: 0.8em; /* Giảm kích thước chữ */
+    }
+    .location-info {
+        flex-direction: row; /* Vẫn giữ trên hàng ngang */
+        /* Ở kích thước này, rất dễ bị tràn. Bạn có thể cần white-space: normal; ở đây
+           hoặc chỉ đơn giản chấp nhận nó sẽ xuống dòng nếu quá dài. */
+    }
+}
